@@ -1,2 +1,2 @@
-# Somthing for Final
+# django for Final
 - work in process
