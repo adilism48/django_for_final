@@ -45,9 +45,9 @@
                     <img src="..." class="card-img-top" alt="">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ item.price }} Som</h5>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ item.title }}">More</button>
-                        <h7 class="card-subtitle mb-2 text-muted">Last updated time: {{ item.pub_date }}</h7>
+                        <h2 class="card-title">{{ item.price }} Som</h2>
+                        <button type="link" class="btn btn-outline-dark btn-sm" data-toggle="modal"
+                                data-target="#{{ item.title }}">More</button>
                     </div>
                 </div>
             </div>
@@ -71,6 +71,7 @@
                 {{ item.description }}
             </div>
             <div class="modal-footer">
+                <h8>Last updated: {{ item.pub_date|date:"Y-m-d H:i" }}</h8>
             </div>
         </div>
     </div>
