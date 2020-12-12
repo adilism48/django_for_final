@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Meie+Script&family=Montserrat:ital,wght@0,400;0,500;1,700&display=swap"
           rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'onlinecatalog/css/style.css' %}">
-    <title>{{ title }}</title>
+    <title>Canteen {{ category }}</title>
 </head>
 <body>
 
@@ -42,25 +42,24 @@
 </div>
 
 
+
 <div class="container">
     <main class="main">
         <div class="menu_items">
             {% for item in product %}
                 {% if item.is_published %}
-
-                    <div class="menu_items_cont">
-                        <div class="main_media">
-                            {% if item.photo %}
-                                <img class="item_photo" src="{{ item.photo.url }}" alt="">
-                            {% endif %}
+                        <div class="menu_items_cont">
+                            <div class="main_media">
+                                {% if item.photo %}
+                                    <img class="item_photo" src="{{ item.photo.url }}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="main_text">
+                                <h4 class="item_title">{{ item.title }}</h4>
+                                <div class="item_text">{{ item.description }} </div>
+                                <h2 class="item_price"> {{ item.price }} s</h2>
+                            </div>
                         </div>
-                        <div class="main_text">
-                            <h4 class="item_title">{{ item.title }}</h4>
-                            <div class="item_text">{{ item.description }} </div>
-                            <h2 class="item_price"> {{ item.price }} s</h2>
-                        </div>
-                    </div>
-
                 {% endif %}
             {% endfor %}
         </div>
