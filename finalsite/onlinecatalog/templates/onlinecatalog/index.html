@@ -1,76 +1,40 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Meie+Script&family=Montserrat:ital,wght@0,400;0,500;1,700&display=swap"
-          rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'onlinecatalog/css/style.css' %}">
-    <title>{{ title }}</title>
-</head>
-<body>
 
-<header class="header">
-    <div class="container">
-        <div class="header_inner">
-            <img class="header_logo_img" src="{% static 'onlinecatalog/images/logo.png' %}" alt="">
-            <div class="header_logo_text">Canteen online</div>
+{% block title %}
+    {{ title }}
+{% endblock %}
 
-            <nav class="nav">
-                <a class="nav_link" href="#">NEWS</a>
-                <a class="nav_link" href="#">ABOUT</a>
-            </nav>
-        </div>
-    </div>
-</header>
-
-
-<div class="menu">
-    <div class="container">
-        <div class="slider">
-            {% for item in categories %}
+{% block slider %}
+    <div class="slider">
+        {% for item in categories %}
+            <div class="slider_item {% if request.path == cat %}active{% endif %}">
                 <div>
-                    <div class="slider_item {% if '/category/{{ item.id }}' in request.path %} active{% endif %}">
-                        <div>
-                            <a class="menu_link" href="/category/{{ item.id }}"><b><i>{{ item.title }}</i></b></a>
-                        </div>
+                    <a class="menu_link" href="{% url 'category' item.pk %}"><b><i>{{ item.title }}</i></b></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="menu_items">
+        {% for item in product %}
+            {% if item.is_published %}
+                <div class="menu_items_cont">
+                    <div class="main_media">
+                        {% if item.photo %}
+                            <img class="item_photo" src="{{ item.photo.url }}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="main_text">
+                        <h4 class="item_title">{{ item.title }}</h4>
+                        <div class="item_text">{{ item.description }} </div>
+                        <h2 class="item_price"> {{ item.price }} s</h2>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            {% endif %}
+        {% endfor %}
     </div>
-</div>
+{% endblock %}
 
-
-<div class="container">
-    <main class="main">
-        <div class="menu_items">
-            {% for item in product %}
-                {% if item.is_published %}
-
-                    <div class="menu_items_cont">
-                        <div class="main_media">
-                            {% if item.photo %}
-                                <img class="item_photo" src="{{ item.photo.url }}" alt="">
-                            {% endif %}
-                        </div>
-                        <div class="main_text">
-                            <h4 class="item_title">{{ item.title }}</h4>
-                            <div class="item_text">{{ item.description }} </div>
-                            <h2 class="item_price"> {{ item.price }} s</h2>
-                        </div>
-                    </div>
-
-                {% endif %}
-            {% endfor %}
-        </div>
-    </main>
-</div>
-
-<footer>
-    <h4 class="footer_text">2020</h4>
-</footer>
-
-
-</body>
-</html>

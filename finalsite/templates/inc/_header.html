@@ -1,0 +1,15 @@
+{% load static %}
+<header class="header">
+    <div class="container">
+        <div class="header_inner">
+            <img class="header_logo_img" src="{% static 'onlinecatalog/images/logo.png' %}" alt="">
+
+            <a class="header_logo_text" href="{% url 'home' %}">Canteen online</a>
+
+            <nav class="nav">
+                <a class="nav_link" href="#">NEWS</a>
+                <a class="nav_link" href="#">ABOUT</a>
+            </nav>
+        </div>
+    </div>
+</header>

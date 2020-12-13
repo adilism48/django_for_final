@@ -7,7 +7,7 @@ class Product(models.Model):
     description = models.TextField(max_length=320, verbose_name='Description')
     price = models.IntegerField()
     pub_date = models.DateTimeField(auto_now=True, verbose_name='Publication date')
-    gi = models.BooleanField(default=True, verbose_name='Published')
+    is_published = models.BooleanField(default=True, verbose_name='Published')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Category')
 
     def __str__(self):

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Meie+Script&family=Montserrat:ital,wght@0,400;0,500;1,700&display=swap"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'onlinecatalog/css/style.css' %}">
+    <title>{% block title %}Canteen online{% endblock %}</title>
+</head>
+<body>
+
+{% include 'inc/_header.html' %}
+
+<div class="menu">
+    <div class="container">
+
+        {% block slider %}Slider{% endblock %}
+
+    </div>
+</div>
+
+
+<div class="container">
+    <main class="main">
+
+        {% block content %}content{% endblock %}
+
+    </main>
+</div>
+
+<footer>
+    <h4 class="footer_text">2020</h4>
+</footer>
+
+
+</body>
+</html>
