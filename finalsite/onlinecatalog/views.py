@@ -18,6 +18,9 @@ def get_category(request, category_id):
     product = Product.objects.filter(category_id=category_id)
     categories = Category.objects.order_by('id')
     category = Category.objects.get(pk=category_id)
-    return render(request, 'onlinecatalog/category.html', {'product': product,
-                                                           'categories': categories,
-                                                           'category': category})
+    context = {
+        'product': product,
+        'categories': categories,
+        'category': category
+    }
+    return render(request, 'onlinecatalog/category.html', context)
