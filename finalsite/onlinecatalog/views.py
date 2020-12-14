@@ -24,3 +24,6 @@ def get_category(request, category_id):
         'category': category
     }
     return render(request, 'onlinecatalog/category.html', context)
+
+def about(request):
+    return render(request, 'onlinecatalog/about.html')
