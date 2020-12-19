@@ -7,3 +7,6 @@ The site helps you find out what food is available in the university cantina. Al
 # Used libraries
  - django (3.1.4)
  - Pillow (8.0.1)
+ 
+ # Video about site
+ https://youtu.be/TFSV9ec435k
