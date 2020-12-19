@@ -4,9 +4,13 @@ The site helps you find out what food is available in the university cantina. Al
 
 ![Menu Illustration](https://github.com/adilism48/django_for_final/blob/main/image/site.jpg)
 
+# Video about site
+ https://youtu.be/TFSV9ec435k
+
 # Used libraries
  - django (3.1.4)
  - Pillow (8.0.1)
- 
- # Video about site
- https://youtu.be/TFSV9ec435k
+
+# Team members list
+ - Avgustin Chynarbekov
+ - Adil Ismailov
